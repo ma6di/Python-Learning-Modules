@@ -29,12 +29,12 @@ This project was built to learn:
 
 ## Future Enhancements
 
-[ ] 🗑️ Remove tasks
-[ ] 💾 Persistent data storage (JSON) 
-[ ] Categories/tags for tasks
-[ ] Search and filter functionality
-[ ] Task editing capabilities
-[ ] Different output formats (Json, CSV, etc.)
-[ ] Due date reminders
-[ ] Color-coded priorities
-[ ] ✓ Mark tasks as completed
+- 🗑️ Remove tasks
+- 💾 Persistent data storage (JSON) 
+- Categories/tags for tasks
+- Search and filter functionality
+- Task editing capabilities
+- Different output formats (Json, CSV, etc.)
+- Due date reminders
+- Color-coded priorities
+- ✓ Mark tasks as completed
