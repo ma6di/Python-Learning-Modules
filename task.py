@@ -33,8 +33,11 @@ class Task:
 		else:
 			days_str = f"{self.days_left}d"
 
+		# Format completion status
+		status_str = "Done" if self.is_completed else "Pending"
+		
 		# Fixed column widths with padding
-		return f"| {short_desc:<15} | {self.priority:^8} | {start_str:^10} | {due_str:^10} | {str(self.is_completed):^8} | {days_str:^10} |"
+		return f"| {short_desc:<15} | {self.priority:^8} | {start_str:^10} | {due_str:^10} | {status_str:^8} | {days_str:^10} |"
 
 	def _calculate_days_left(self):
 		"""Calculate days remaining until due date."""

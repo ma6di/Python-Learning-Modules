@@ -1,0 +1,11 @@
+# Ignore task data files
+tasks.json
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
