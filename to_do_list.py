@@ -44,14 +44,13 @@ def handle_mark_task_done():
 		
 	try:
 		print_task_list(tasks)
-		print("(Press Ctrl+C or type 'b'/'back'/'quit' to cancel)")
 		
 		while True:
 			user_input = input("Enter task number to mark as done: ").strip()
 			
 			# Check for escape commands first (before trying to convert to int)
-			if user_input.lower() in ['b', 'back', 'q', 'quit', 'cancel']:
-				print("Returning to main menu...")
+			if user_input.lower() in ['b', 'back', 'cancel']:
+				print("Returning to main menu...\n")
 				return
 			
 			try:
@@ -64,20 +63,18 @@ def handle_mark_task_done():
 				else:
 					print(f"Please enter a number between 1 and {len(tasks)}")
 			except ValueError:
-				print("Please enter a valid number or 'back' to cancel!")
+				print("Please enter a valid number")
 				
 	except KeyboardInterrupt:
 		print("\nOperation cancelled. Returning to main menu...")
 
 def handle_add_task():
 	"""Handle adding a new task with escape options."""
-	try:
-		print("(Press Ctrl+C or type 'cancel' at any prompt to abort)")
-		
+	try:		
 		# Get description with escape option
 		while True:
-			description = input("Enter task description (or 'cancel' to abort): ").strip()
-			if description.lower() in ['cancel', 'quit', 'back']:
+			description = input("Enter task description: ").strip()
+			if description.lower() in ['b', 'back', 'cancel']:
 				print("Task creation cancelled.")
 				return
 			if description:
@@ -87,8 +84,8 @@ def handle_add_task():
 		# Get priority with escape option
 		valid_priorities = ['low', 'medium', 'high']
 		while True:
-			priority = input("Enter priority (low/medium/high) or press Enter for default (or 'cancel'): ").strip().lower()
-			if priority in ['cancel', 'quit', 'back']:
+			priority = input("Enter priority (low/medium/high): ").strip().lower()
+			if priority in ['b', 'cancel', 'back']:
 				print("Task creation cancelled.")
 				return
 			if not priority:
@@ -100,8 +97,8 @@ def handle_add_task():
 		
 		# Get start date with escape option
 		while True:
-			start_input = input("Enter start date (YYYY-MM-DD) or press Enter for today (or 'cancel'): ").strip()
-			if start_input.lower() in ['cancel', 'quit', 'back']:
+			start_input = input("Enter start date (YYYY-MM-DD) or press Enter for today: ").strip()
+			if start_input.lower() in ['b', 'cancel', 'back']:
 				print("Task creation cancelled.")
 				return
 			if not start_input:
@@ -114,8 +111,8 @@ def handle_add_task():
 		
 		# Get due date with escape option
 		while True:
-			due_input = input("Enter due date (YYYY-MM-DD), days from start, or Enter for none (or 'cancel'): ").strip()
-			if due_input.lower() in ['cancel', 'quit', 'back']:
+			due_input = input("Enter due date (YYYY-MM-DD), days from start, or Enter for none: ").strip()
+			if due_input.lower() in ['b','cancel', 'back']:
 				print("Task creation cancelled.")
 				return
 			if not due_input:
@@ -131,7 +128,7 @@ def handle_add_task():
 					break
 				print("Please enter 1-365 days")
 			else:
-				print("Invalid input! Use date format, number of days, or 'cancel'")
+				print("Invalid input! Use date format, number of days'")
 		
 		# Create and add the task
 		my_task = Task(description, priority, start_date, due_date)
@@ -140,7 +137,7 @@ def handle_add_task():
 		save_tasks()  # Save after adding task
 		
 	except KeyboardInterrupt:
-		print("\nTask creation cancelled. Returning to main menu...")
+		print("\nTask creation cancelled. Returning to main menu...\n")
 
 def handle_remove_task():
 	"""Handle removing a task with escape options."""
@@ -150,13 +147,12 @@ def handle_remove_task():
 		
 	try:
 		print_task_list(tasks)
-		print("(Press Ctrl+C or type 'b'/'back'/'quit' to cancel)")
 		
 		while True:
 			user_input = input("Enter task number to remove: ").strip()
 			
 			# Check for escape commands
-			if user_input.lower() in ['b', 'back', 'q', 'quit', 'cancel']:
+			if user_input.lower() in ['b', 'back', 'cancel']:
 				print("Returning to main menu...")
 				return
 			
@@ -170,10 +166,10 @@ def handle_remove_task():
 				else:
 					print(f"Please enter a number between 1 and {len(tasks)}")
 			except ValueError:
-				print("Please enter a valid number or 'back' to cancel!")
+				print("Please enter a valid number!")
 				
 	except KeyboardInterrupt:
-		print("\nOperation cancelled. Returning to main menu...")
+		print("\nOperation cancelled. Returning to main menu...\m")
 
 def is_valid_date(date_string):
 	"""Check if date string is in valid YYYY-MM-DD format."""
@@ -184,60 +180,60 @@ def is_valid_date(date_string):
 	except ValueError:
 		return False
 
-def add_task():
-	# Get valid description (keep asking until not empty)
-	while True:
-		description = input("Enter the task description: \n")
-		if description.strip():  # If not empty
-			break  # Exit the description loop
-		print("Task description can't be empty! Please try again.")
+# def add_task():
+# 	# Get valid description (keep asking until not empty)
+# 	while True:
+# 		description = input("Enter the task description: \n")
+# 		if description.strip():  # If not empty
+# 			break  # Exit the description loop
+# 		print("Task description can't be empty! Please try again.")
 		
-	# Get valid priority (keep asking until valid or empty for default)
-	valid_priorities = ['low', 'medium', 'high']
-	while True:
-		priority = input("Enter the task priority (low, medium, high) or press Enter for default: \n")
-		priority = priority.strip().lower()
+# 	# Get valid priority (keep asking until valid or empty for default)
+# 	valid_priorities = ['low', 'medium', 'high']
+# 	while True:
+# 		priority = input("Enter the task priority (low, medium, high) or press Enter for default: \n")
+# 		priority = priority.strip().lower()
 		
-		if not priority:  # Empty = use default
-			priority = "medium"
-			break
-		elif priority in valid_priorities:  # Valid priority
-			break
-		else:  # Invalid priority
-			print(f"Invalid priority! Please enter one of: {', '.join(valid_priorities)} or press Enter for default.")
+# 		if not priority:  # Empty = use default
+# 			priority = "medium"
+# 			break
+# 		elif priority in valid_priorities:  # Valid priority
+# 			break
+# 		else:  # Invalid priority
+# 			print(f"Invalid priority! Please enter one of: {', '.join(valid_priorities)} or press Enter for default.")
 		
-	while True:
-		start_date =  input("Enter start date (YYYY-MM-DD) or press Enter for Today: \n")
-		if not start_date:
-			start_date = datetime.now()
-			break
-		elif is_valid_date(start_date):
-			start_date = datetime.strptime(start_date, "%Y-%m-%d") 
-			break
-		else:
-			print("Invalid date format! Please enter date as YYYY-MM-DD or press Enter for Today.")
+# 	while True:
+# 		start_date =  input("Enter start date (YYYY-MM-DD) or press Enter for Today: \n")
+# 		if not start_date:
+# 			start_date = datetime.now()
+# 			break
+# 		elif is_valid_date(start_date):
+# 			start_date = datetime.strptime(start_date, "%Y-%m-%d") 
+# 			break
+# 		else:
+# 			print("Invalid date format! Please enter date as YYYY-MM-DD or press Enter for Today.")
 
-	while True:
-		due_date = input("Enter due date (YYYY-MM-DD), enter a number of days to complete the task, or press Enter for None: \n")
-		if not due_date:
-			due_date = None
-			break
-		elif is_valid_date(due_date):
-			due_date = datetime.strptime(due_date, "%Y-%m-%d")  # Convert to datetime object
-			break
-		elif due_date.isdecimal():
-			days_to_add = int(due_date)
-			if 1 <= days_to_add <= 365:  # Reasonable range
-				due_date = start_date + timedelta(days=days_to_add)
-				break
-			else:
-				print("Please enter a number between 1-365 days.")
-		else:
-			print("Invalid due date format! Please enter date as YYYY-MM-DD or press Enter for None.")
+# 	while True:
+# 		due_date = input("Enter due date (YYYY-MM-DD), enter a number of days to complete the task, or press Enter for None: \n")
+# 		if not due_date:
+# 			due_date = None
+# 			break
+# 		elif is_valid_date(due_date):
+# 			due_date = datetime.strptime(due_date, "%Y-%m-%d")  # Convert to datetime object
+# 			break
+# 		elif due_date.isdecimal():
+# 			days_to_add = int(due_date)
+# 			if 1 <= days_to_add <= 365:  # Reasonable range
+# 				due_date = start_date + timedelta(days=days_to_add)
+# 				break
+# 			else:
+# 				print("Please enter a number between 1-365 days.")
+# 		else:
+# 			print("Invalid due date format! Please enter date as YYYY-MM-DD or press Enter for None.")
 
-	my_task = Task(description, priority, start_date, due_date)
-	tasks.append(my_task)
-	print(f"Task '{description}' added!")
+# 	my_task = Task(description, priority, start_date, due_date)
+# 	tasks.append(my_task)
+# 	print(f"Task '{description}' added!")
 
 def print_task_list(tasks):
 	if not tasks:
@@ -329,10 +325,11 @@ def save_tasks():
 
 def main():
 	"""Main function to run the to-do list application."""
-	print("Welcome to your To-Do List!")
-	load_tasks()
+	print("\n** Welcome to your To-Do List! **")
+	print("** Press Ctrl+C or type 'b'/'back'/'cancel' at any prompt to abort **\n")
 	while True:
 		try:
+			load_tasks()
 			show_menu()
 			choice = get_valid_menu_choice()  # This always returns a valid int
 			
