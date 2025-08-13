@@ -1,7 +1,7 @@
 # Python Learning Journey 🐍
 A comprehensive collection of Python projects built from scratch to master fundamental programming concepts, libraries, and real-world application development.## 🎯 Learning Philosophy**"Learn by Building"** - Each project introduces new Python concepts while creating practical, functional applications. Progress from basic syntax to advanced libraries through hands-on coding experience.## 
 
-# 🛠️ **Built-in Modules** 
+**Built-in Modules** 
 | `datetime` | Date/time handling | strftime, timedelta, date arithmetic |
 
 | `json` | Data serialization | dumps, loads, file persistence |
