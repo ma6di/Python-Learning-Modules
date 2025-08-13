@@ -1,5 +1,5 @@
 from task import Task
-from datetime import datetime
+from datetime import datetime, timedelta
 
 tasks = []
 
@@ -7,19 +7,168 @@ def show_menu():
 	print("--- To-Do List Menu ---", "1. Add task", "2. List tasks", 
 	"3. Mark task as done", "4. Remove task" , "5. Exit", sep = "\n", end= "\n")
 
+def mark_task_as_done(task_number):
+	for i in tasks:
+		if i == task_number:
+			tasks[i].mark_completed()
+
 def print_selected_choice(choice):
-	if choice == 1:
-		print("you selected \"1. Add task\" from the menu")
-		add_task()
-	elif choice == 2:
-		print("you selected \"2. List tasks\" from the menu")
-		print_task_list(tasks)
-	elif choice == 3:
-		print("you selected \"3. Mark task\" as done from the menu")
-	elif choice == 4:
-		print("you selected \"4. Remove task\" from the menu")
-	elif choice == 5:
-		print("Good Bye")
+    """Handle user's menu choice with escape options for all."""
+    
+    if choice == 1:
+        print("Adding new task...")
+        handle_add_task()
+        
+    elif choice == 2:
+        print("Displaying all tasks...")
+        print_task_list(tasks)
+        
+    elif choice == 3:
+        print("Mark task as completed...")
+        handle_mark_task_done()
+        
+    elif choice == 4:
+        print("Remove task...")
+        handle_remove_task()
+        
+    elif choice == 5:
+        print("Good Bye!")
+
+def handle_mark_task_done():
+    """Handle marking a task as completed with escape options."""
+    if not tasks:
+        print("No tasks to mark as done!")
+        return
+    
+    try:
+        print_task_list(tasks)
+        print("(Press Ctrl+C or type 'b'/'back'/'quit' to cancel)")
+        
+        while True:
+            user_input = input("Enter task number to mark as done: ").strip()
+            
+            # Check for escape commands first (before trying to convert to int)
+            if user_input.lower() in ['b', 'back', 'q', 'quit', 'cancel']:
+                print("Returning to main menu...")
+                return
+            
+            try:
+                task_num = int(user_input)
+                if 1 <= task_num <= len(tasks):
+                    tasks[task_num - 1].mark_completed()
+                    print(f"Task {task_num} marked as completed!")
+                    return  # Exit after successful completion
+                else:
+                    print(f"Please enter a number between 1 and {len(tasks)}")
+            except ValueError:
+                print("Please enter a valid number or 'back' to cancel!")
+                
+    except KeyboardInterrupt:
+        print("\nOperation cancelled. Returning to main menu...")
+
+def handle_add_task():
+    """Handle adding a new task with escape options."""
+    try:
+        print("(Press Ctrl+C or type 'cancel' at any prompt to abort)")
+        
+        # Get description with escape option
+        while True:
+            description = input("Enter task description (or 'cancel' to abort): ").strip()
+            if description.lower() in ['cancel', 'quit', 'back']:
+                print("Task creation cancelled.")
+                return
+            if description:
+                break
+            print("Description cannot be empty!")
+        
+        # Get priority with escape option
+        valid_priorities = ['low', 'medium', 'high']
+        while True:
+            priority = input("Enter priority (low/medium/high) or press Enter for default (or 'cancel'): ").strip().lower()
+            if priority in ['cancel', 'quit', 'back']:
+                print("Task creation cancelled.")
+                return
+            if not priority:
+                priority = "medium"
+                break
+            if priority in valid_priorities:
+                break
+            print(f"Invalid priority! Please enter: {', '.join(valid_priorities)}")
+        
+        # Get start date with escape option
+        while True:
+            start_input = input("Enter start date (YYYY-MM-DD) or press Enter for today (or 'cancel'): ").strip()
+            if start_input.lower() in ['cancel', 'quit', 'back']:
+                print("Task creation cancelled.")
+                return
+            if not start_input:
+                start_date = datetime.now()
+                break
+            if is_valid_date(start_input):
+                start_date = datetime.strptime(start_input, "%Y-%m-%d")
+                break
+            print("Invalid date format! Use YYYY-MM-DD")
+        
+        # Get due date with escape option
+        while True:
+            due_input = input("Enter due date (YYYY-MM-DD), days from start, or Enter for none (or 'cancel'): ").strip()
+            if due_input.lower() in ['cancel', 'quit', 'back']:
+                print("Task creation cancelled.")
+                return
+            if not due_input:
+                due_date = None
+                break
+            if is_valid_date(due_input):
+                due_date = datetime.strptime(due_input, "%Y-%m-%d")
+                break
+            if due_input.isdecimal():
+                days = int(due_input)
+                if 1 <= days <= 365:
+                    due_date = start_date + timedelta(days=days)
+                    break
+                print("Please enter 1-365 days")
+            else:
+                print("Invalid input! Use date format, number of days, or 'cancel'")
+        
+        # Create and add the task
+        my_task = Task(description, priority, start_date, due_date)
+        tasks.append(my_task)
+        print(f"Task '{description}' added successfully!")
+        
+    except KeyboardInterrupt:
+        print("\nTask creation cancelled. Returning to main menu...")
+
+def handle_remove_task():
+    """Handle removing a task with escape options."""
+    if not tasks:
+        print("No tasks to remove!")
+        return
+    
+    try:
+        print_task_list(tasks)
+        print("(Press Ctrl+C or type 'b'/'back'/'quit' to cancel)")
+        
+        while True:
+            user_input = input("Enter task number to remove: ").strip()
+            
+            # Check for escape commands
+            if user_input.lower() in ['b', 'back', 'q', 'quit', 'cancel']:
+                print("Returning to main menu...")
+                return
+            
+            try:
+                task_num = int(user_input)
+                if 1 <= task_num <= len(tasks):
+                    removed_task = tasks.pop(task_num - 1)  # Remove and get the task
+                    print(f"Task '{removed_task.description}' removed successfully!")
+                    return
+                else:
+                    print(f"Please enter a number between 1 and {len(tasks)}")
+            except ValueError:
+                print("Please enter a valid number or 'back' to cancel!")
+                
+    except KeyboardInterrupt:
+        print("\nOperation cancelled. Returning to main menu...")
 
 def is_valid_date(date_string):
     """Check if date string is in valid YYYY-MM-DD format."""
@@ -64,13 +213,20 @@ def add_task():
 			print("Invalid date format! Please enter date as YYYY-MM-DD or press Enter for Today.")
 
 	while True:
-		due_date = input("Enter due date (Year-Month-Day) or press Enter for None: \n")
+		due_date = input("Enter due date (YYYY-MM-DD), enter a number of days to complete the task, or press Enter for None: \n")
 		if not due_date:
 			due_date = None
 			break
 		elif is_valid_date(due_date):
 			due_date = datetime.strptime(due_date, "%Y-%m-%d")  # Convert to datetime object
 			break
+		elif due_date.isdecimal():
+			days_to_add = int(due_date)
+			if 1 <= days_to_add <= 365:  # Reasonable range
+				due_date = start_date + timedelta(days=days_to_add)
+				break
+			else:
+				print("Please enter a number between 1-365 days.")
 		else:
 			print("Invalid due date format! Please enter date as YYYY-MM-DD or press Enter for None.")
 
@@ -94,7 +250,7 @@ def print_task_list(tasks):
 	for i, task in enumerate(tasks, 1):
 		print(f"|{i:^4} {task}")        # Add task number + task info
 	
-	print(Task.get_table_separator())   # Print bottom separator
+	print(Task.get_table_separator(), "\n")   # Print bottom separator
 
 
 def get_valid_menu_choice():
