@@ -3,11 +3,17 @@ A comprehensive collection of Python projects built from scratch to master funda
 
 # 🛠️ **Built-in Modules** 
 | `datetime` | Date/time handling | strftime, timedelta, date arithmetic |
+
 | `json` | Data serialization | dumps, loads, file persistence |
+
 | `csv` | Data export | writer, formatting, UTF-8 encoding |
+
 | `argparse` | CLI interfaces | argument parsing, validation, help generation |
-| **External Packages** | | |
+
+**External Packages**
+
 | `requests` | HTTP requests | GET requests, status codes, error handling |
+
 | `beautifulsoup4` | HTML parsing | find_all, element selection, text extraction |
 
 ## 📈 Learning Outcomes
