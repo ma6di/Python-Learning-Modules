@@ -8,7 +8,7 @@ A comprehensive collection of Python projects built from scratch to master funda
 
 ## 📚 Learning Modules
 
-### 01. [To-Do List CLI](./01-todo-cli/)
+### 01. To-Do List CLI
 **Core Python Fundamentals + File Handling**
 
 **🧠 Learning Objectives:**
@@ -29,7 +29,7 @@ A comprehensive collection of Python projects built from scratch to master funda
 
 ---
 
-### 02. [News Headlines Scraper](./News%20Scraper/)
+### 02. News Headlines Scraper
 **Web Scraping + Command-Line Tools + Data Export**
 
 **🧠 Learning Objectives:**
@@ -49,7 +49,7 @@ A comprehensive collection of Python projects built from scratch to master funda
 
 ---
 
-### 03. [CSV Data Visualizer](./CSV%20Data%20Visualizer/)
+### 03. CSV Data Visualizer
 **Data Science + Statistical Analysis + Advanced Visualization**
 
 
@@ -86,25 +86,5 @@ A comprehensive collection of Python projects built from scratch to master funda
 | `numpy` | Mathematical operations | Array operations, statistical functions |
 
 
-## 📈 Learning Progression
-
-```
-Module 01: Core Python → Module 02: Web Scraping → Module 03: Data Science
-```
-
-**Skills Mastered:**
-- **Core Python**: OOP, error handling, file I/O, CLI development
-- **Web Technologies**: HTTP requests, HTML parsing, data export
-- **Data Science**: pandas analysis, statistical visualization, publication-ready charts
-
-## 🎯 Project Stats
-
-| Module | Lines of Code | Key Libraries | Concepts |
-|--------|---------------|---------------|----------|
-| **01: To-Do CLI** | ~450 | Built-in only | 15+ Python fundamentals |
-| **02: News Scraper** | ~180 | requests, BeautifulSoup | Web protocols, CLI tools |
-| **03: Data Visualizer** | ~200 | pandas, matplotlib, seaborn | Statistical analysis, visualization |
-
----
 
 *Learn Python from zero to proficiency through hands-on project development* 🐍✨
