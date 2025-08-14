@@ -1,58 +1,110 @@
 # Python Learning Journey 🐍
-A comprehensive collection of Python projects built from scratch to master fundamental programming concepts, libraries, and real-world application development.## 🎯 Learning Philosophy**"Learn by Building"** - Each project introduces new Python concepts while creating practical, functional applications. Progress from basic syntax to advanced libraries through hands-on coding experience.## 
 
-**Built-in Modules** 
+A comprehensive collection of Python projects built from scratch to master fundamental programming concepts, libraries, and real-world application development.
 
+## 🎯 Learning Philosophy
+
+**"Learn by Building"** - Each project introduces new Python concepts while creating practical, functional applications. Progress from basic syntax to advanced libraries through hands-on coding experience.
+
+## 📚 Learning Modules
+
+### 01. [To-Do List CLI](./01-todo-cli/)
+**Core Python Fundamentals + File Handling**
+
+**🧠 Learning Objectives:**
+- **Object-Oriented Programming**: Classes, methods, `__init__`, `__str__`
+- **Error Handling**: try/except blocks, KeyboardInterrupt, ValueError
+- **File I/O**: JSON serialization/deserialization for data persistence
+- **User Interface**: Menu-driven CLI with input validation
+- **Data Structures**: Lists, dictionaries, enumerations
+- **Date/Time**: datetime module, strftime/strptime formatting
+- **String Methods**: .strip(), .lower(), .isdigit() validation
+
+**✨ Key Features:**
+- Full CRUD operations (Create, Read, Update, Delete)
+- JSON persistence for data storage
+- Color-coded terminal output
+- Comprehensive input validation
+- Real-time task editing with immediate updates
+
+---
+
+### 02. [News Headlines Scraper](./News%20Scraper/)
+**Web Scraping + Command-Line Tools + Data Export**
+
+**🧠 Learning Objectives:**
+- **Web Scraping**: requests library for HTTP requests
+- **HTML Parsing**: BeautifulSoup for DOM navigation and element selection
+- **Command-Line Interface**: argparse for professional CLI design
+- **Data Export**: CSV module for structured data output
+- **Error Handling**: Network errors, HTTP status codes, missing elements
+- **URL Processing**: urllib.parse for domain extraction
+
+**✨ Key Features:**
+- Multi-source news scraping (BBC, CNN, Reuters, etc.)
+- Custom URL support for any website
+- Professional CLI with argument validation
+- CSV export with timestamps and metadata
+- Smart headline detection using multiple selectors
+
+---
+
+### 03. [CSV Data Visualizer](./CSV%20Data%20Visualizer/)
+**Data Science + Statistical Analysis + Advanced Visualization**
+
+
+**🧠 Learning Objectives:**
+- **Data Analysis**: pandas DataFrames, data exploration, statistical summaries
+- **Data Visualization**: matplotlib for basic plots, seaborn for advanced charts
+- **Statistical Analysis**: Correlation analysis, distribution patterns, regression lines
+- **Multi-Chart Displays**: Subplots, comparative analysis, professional styling
+- **Data Science Workflow**: From raw CSV to publication-ready visualizations
+
+**✨ Key Features:**
+- Loads and analyzes Bitcoin price dataset (59 data points)
+- Creates 6 different chart types simultaneously
+- Professional seaborn styling with statistical overlays
+- Correlation analysis with regression lines
+- Distribution analysis with density curves
+- Real-time data exploration and insights
+
+## 🛠️ Python Libraries Mastered
+
+| Library | Purpose | Key Learning |
+|---------|---------|--------------|
+| **Built-in Modules** | | |
 | `datetime` | Date/time handling | strftime, timedelta, date arithmetic |
-
 | `json` | Data serialization | dumps, loads, file persistence |
-
 | `csv` | Data export | writer, formatting, UTF-8 encoding |
-
 | `argparse` | CLI interfaces | argument parsing, validation, help generation |
-
-**External Packages**
-
+| **External Packages** | | |
 | `requests` | HTTP requests | GET requests, status codes, error handling |
-
 | `beautifulsoup4` | HTML parsing | find_all, element selection, text extraction |
+| `pandas` | Data analysis | DataFrames, CSV reading, data manipulation |
+| `matplotlib` | Basic plotting | line plots, bar charts, scatter plots, subplots |
+| `seaborn` | Statistical visualization | regression plots, distributions, professional styling |
+| `numpy` | Mathematical operations | Array operations, statistical functions |
 
-## 📈 Learning Outcomes
 
-### **Problem-Solving Skills**
-- Breaking complex problems into manageable functions
-- Debugging through print statements and error messages
-- Handling edge cases and user input validation
-- Planning application architecture and data flow
+## 📈 Learning Progression
 
-### **Software Development Practices**
-- **Code Organization**: Modular design with separate files and functions
-- **Documentation**: Clear comments, docstrings, and README files
-- **User Experience**: Intuitive interfaces with helpful error messages
-- **Data Management**: Persistent storage and data integrity
+```
+Module 01: Core Python → Module 02: Web Scraping → Module 03: Data Science
+```
 
-### **Real-World Applications**
-- **Automation**: Task management and data collection tools
-- **Web Interaction**: Scraping and processing online information
-- **Data Analysis**: Exporting structured data for further analysis
-- **Command-Line Tools**: Professional CLI applications
+**Skills Mastered:**
+- **Core Python**: OOP, error handling, file I/O, CLI development
+- **Web Technologies**: HTTP requests, HTML parsing, data export
+- **Data Science**: pandas analysis, statistical visualization, publication-ready charts
 
-## 🎯 Project Complexity Evolution
+## 🎯 Project Stats
 
-### **Module 01: Foundation Building**
-- **Lines of Code**: ~450 lines
-- **Files**: 2 Python files (main + class)
-- **Concepts**: 15+ core Python concepts
-- **Features**: 6 main operations with full validation
+| Module | Lines of Code | Key Libraries | Concepts |
+|--------|---------------|---------------|----------|
+| **01: To-Do CLI** | ~450 | Built-in only | 15+ Python fundamentals |
+| **02: News Scraper** | ~180 | requests, BeautifulSoup | Web protocols, CLI tools |
+| **03: Data Visualizer** | ~200 | pandas, matplotlib, seaborn | Statistical analysis, visualization |
 
-### **Module 02: Integration & Libraries**
-- **Lines of Code**: ~180 lines
-- **External Dependencies**: 2 packages
-- **Concepts**: Web protocols, HTML parsing, data export
-- **Features**: Multi-source scraping with CLI flexibility
+---
 
-## 📜 License
-
-These learning projects are open source and available under the MIT License.
-
-**Happy Coding!** 🐍✨
+*Learn Python from zero to proficiency through hands-on project development* 🐍✨
