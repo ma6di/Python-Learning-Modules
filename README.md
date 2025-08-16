@@ -66,6 +66,8 @@ A comprehensive collection of Python projects built from scratch to master funda
 - Professional seaborn styling with statistical overlays
 - Correlation analysis with regression lines
 - Distribution analysis with density curves
+- Real-time data exploration and insights
+
 ---
 
 ### 04. [Log File Analyzer](./04-log-analyzer/)
@@ -86,6 +88,27 @@ A comprehensive collection of Python projects built from scratch to master funda
 - Time-based traffic analysis with visual charts
 - Professional CLI with multiple analysis options
 - Memory-efficient streaming for large log files
+
+---
+
+### 05. [Weather API Integration](./Weather%20Api/)
+**API Integration + HTTP Requests + JSON Processing**
+
+**🧠 Learning Objectives:**
+- **HTTP Requests**: Making GET requests to external APIs using requests library
+- **JSON Data Handling**: Parsing and extracting data from API responses
+- **Error Handling**: Managing network errors, API failures, and invalid responses
+- **Data Extraction**: Navigating complex nested JSON structures
+- **User Input**: Interactive command-line interface with input validation
+- **Service Integration**: Working with third-party weather services
+
+**✨ Key Features:**
+- Fetches real-time weather data from free APIs (no API key required)
+- Smart location display with city, region, and country information
+- Comprehensive weather data (temperature, humidity, wind speed)
+- Robust error handling with user-friendly messages
+- International support for cities worldwide
+- Clean, readable output formatting
 
 ## 🛠️ Python Libraries Mastered
 
