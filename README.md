@@ -66,7 +66,26 @@ A comprehensive collection of Python projects built from scratch to master funda
 - Professional seaborn styling with statistical overlays
 - Correlation analysis with regression lines
 - Distribution analysis with density curves
-- Real-time data exploration and insights
+---
+
+### 04. [Log File Analyzer](./04-log-analyzer/)
+**System Administration + Regex + Security Analysis**
+
+**🧠 Learning Objectives:**
+- **Regular Expressions**: Complex pattern matching with capturing groups
+- **File Streaming**: Memory-efficient processing of large files
+- **Date/Time Parsing**: Converting timestamps to datetime objects
+- **Data Aggregation**: Statistical analysis and frequency counting
+- **Security Analysis**: Detecting suspicious patterns and attacks
+- **Command-Line Tools**: Professional argparse implementation
+
+**✨ Key Features:**
+- Parses Apache/Nginx log files with regex patterns
+- Identifies top IPs, status codes, and request paths
+- Security threat detection (brute force, suspicious paths)
+- Time-based traffic analysis with visual charts
+- Professional CLI with multiple analysis options
+- Memory-efficient streaming for large log files
 
 ## 🛠️ Python Libraries Mastered
 
@@ -77,6 +96,7 @@ A comprehensive collection of Python projects built from scratch to master funda
 | `json` | Data serialization | dumps, loads, file persistence |
 | `csv` | Data export | writer, formatting, UTF-8 encoding |
 | `argparse` | CLI interfaces | argument parsing, validation, help generation |
+| `re` | Regular expressions | pattern matching, groups, text parsing |
 | **External Packages** | | |
 | `requests` | HTTP requests | GET requests, status codes, error handling |
 | `beautifulsoup4` | HTML parsing | find_all, element selection, text extraction |
@@ -84,7 +104,3 @@ A comprehensive collection of Python projects built from scratch to master funda
 | `matplotlib` | Basic plotting | line plots, bar charts, scatter plots, subplots |
 | `seaborn` | Statistical visualization | regression plots, distributions, professional styling |
 | `numpy` | Mathematical operations | Array operations, statistical functions |
-
-
-
-*Learn Python from zero to proficiency through hands-on project development* 🐍✨
